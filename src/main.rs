@@ -31,7 +31,7 @@ async fn main() -> Result<(), anyhow::Error> {
     });
 
     let serve_dir_service =
-        get_service(ServeDir::new("public")).handle_error(|error: io::Error| async move {
+        get_service(ServeDir::new(PUBLIC_DIR)).handle_error(|error: io::Error| async move {
             (
                 StatusCode::INTERNAL_SERVER_ERROR,
                 format!("Unhandled internal error: {}", error),
