@@ -2,10 +2,13 @@ mod templates;
 
 static CONTENT_DIR: &str = "content";
 static PUBLIC_DIR: &str = "public";
-use axum::handler::Handler;
 use notify::{watcher, RecursiveMode, Watcher};
 use std::sync::mpsc::channel;
-use std::{convert::Infallible, fs, net::SocketAddr, path::Path, thread, time::Duration};
+use std::{fs, net::SocketAddr, path::PathBuf, thread, time::Duration, io};
+use axum::{error_handling::HandleErrorLayer, http::StatusCode, routing::get_service, Router};
+use tower_http::services::ServeDir;
+
+// Serves files inside the `public` directory at `GET /public/*`
 
 #[tokio::main(flavor = "current_thread")]
 async fn main() -> Result<(), anyhow::Error> {
@@ -16,8 +19,8 @@ async fn main() -> Result<(), anyhow::Error> {
         .watch(CONTENT_DIR, RecursiveMode::Recursive)
         .expect("Directory watcher failed to initialize");
 
-    std::thread::spawn(move || loop {
-        std::thread::sleep(Duration::from_millis(10));
+    thread::spawn(move || loop {
+        thread::sleep(Duration::from_millis(10));
         match receiver.recv() {
             Ok(event) => {
                 println!("{:?}", event);
@@ -27,17 +30,15 @@ async fn main() -> Result<(), anyhow::Error> {
         }
     });
 
-    let app = axum::Router::new().nest(
-        "/",
-        axum::routing::get(tower_http::services::fs::ServeDir::new(PUBLIC_DIR)).handle_error(
-            |error: std::io::Error| {
-                Ok::<_, Infallible>((
-                    axum::http::StatusCode::INTERNAL_SERVER_ERROR,
-                    format!("Unhandled internal error: {}", error),
-                ))
-            },
-        ),
-    );
+    let serve_dir_service =
+        get_service(ServeDir::new("public")).handle_error(|error: io::Error| async move {
+            (
+                StatusCode::INTERNAL_SERVER_ERROR,
+                format!("Unhandled internal error: {}", error),
+            )
+        });
+
+    let app = Router::new().nest("/", serve_dir_service);
 
     let addr = SocketAddr::from(([127, 0, 0, 1], 8080));
     println!("serving site on {}", addr);
@@ -48,7 +49,6 @@ async fn main() -> Result<(), anyhow::Error> {
     Ok(())
 }
 
-use std::path::PathBuf;
 
 fn rebuild() {
     let _ = fs::remove_dir_all(PUBLIC_DIR);
@@ -60,7 +60,6 @@ fn rebuild() {
 
     files
         .map(|md_f| {
-            println!("FILE");
             let markdown = fs::read_to_string(md_f.path()).unwrap();
             let parser = pulldown_cmark::Parser::new_ext(&markdown, pulldown_cmark::Options::all());
             let mut body = String::new();
