@@ -2,10 +2,10 @@ mod templates;
 
 static CONTENT_DIR: &str = "content";
 static PUBLIC_DIR: &str = "public";
+use axum::{error_handling::HandleErrorLayer, http::StatusCode, routing::get_service, Router};
 use notify::{watcher, RecursiveMode, Watcher};
 use std::sync::mpsc::channel;
-use std::{fs, net::SocketAddr, path::PathBuf, thread, time::Duration, io};
-use axum::{error_handling::HandleErrorLayer, http::StatusCode, routing::get_service, Router};
+use std::{fs, io, net::SocketAddr, path::PathBuf, thread, time::Duration};
 use tower_http::services::ServeDir;
 
 // Serves files inside the `public` directory at `GET /public/*`
@@ -49,16 +49,39 @@ async fn main() -> Result<(), anyhow::Error> {
     Ok(())
 }
 
-
 fn rebuild() {
     let _ = fs::remove_dir_all(PUBLIC_DIR);
 
     let files = walkdir::WalkDir::new(CONTENT_DIR)
         .into_iter()
         .filter_map(|f| f.ok())
-        .filter(|f| f.path().extension().map(|e| e == "md").is_some());
+        .filter(|f| f.file_type().is_file());
 
-    files
+    let (mdfs, otherfs): (Vec<_>, Vec<_>) =
+        files.partition(|f| Some(true) == f.path().extension().map(|e| e == "md"));
+
+    otherfs.iter().for_each(|f| {
+        let new_path: PathBuf = [
+            PUBLIC_DIR,
+            f.path()
+                .strip_prefix(CONTENT_DIR)
+                .unwrap()
+                .to_str()
+                .unwrap(),
+        ]
+        .iter()
+        .collect();
+
+        let _ = fs::create_dir_all(new_path.parent().unwrap());
+        let _ = fs::copy(f.path(), new_path);
+    });
+
+    let nav = templates::render_nav(mdfs.iter().filter_map(|f| {
+        let path = f.path().strip_prefix(CONTENT_DIR).unwrap();
+        path.file_stem().map(|stem| (path, stem))
+    }));
+
+    mdfs.iter()
         .map(|md_f| {
             let markdown = fs::read_to_string(md_f.path()).unwrap();
             let parser = pulldown_cmark::Parser::new_ext(&markdown, pulldown_cmark::Options::all());
@@ -68,13 +91,20 @@ fn rebuild() {
             let rendered = format!(
                 "{} {} {}",
                 templates::HEADER,
-                templates::render_body(&body),
+                templates::render(&nav, &body),
                 templates::FOOTER
             );
 
-            let mut html_path: PathBuf = [PUBLIC_DIR, md_f.file_name().to_str().unwrap()]
-                .iter()
-                .collect();
+            let mut html_path: PathBuf = [
+                PUBLIC_DIR,
+                md_f.path()
+                    .strip_prefix(CONTENT_DIR)
+                    .unwrap()
+                    .to_str()
+                    .unwrap(),
+            ]
+            .iter()
+            .collect();
 
             html_path.set_extension("html");
 
