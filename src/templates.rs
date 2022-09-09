@@ -8,7 +8,7 @@ pub const HEADER: &str = r#"<!DOCTYPE html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://unpkg.com/bamboo.css/dist/dark.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kimeiga/bahunya/dist/bahunya.min.css">
   </head>
 
 "#;
@@ -27,18 +27,44 @@ pub fn render_nav<'a>(items: impl Iterator<Item = (&'a Path, &'a OsStr)>) -> Str
         })
         .collect::<Vec<_>>()
         .join("\n\t");
-    format!("\n<nav>\n\t<a href=\"/\">Home</a>\n\t{}\n</nav>", inner)
+    format!(r#"
+    <nav>
+            <a href="/">Home</a>
+            {}
+            <a href="https://github.com/dylanjwolff">GitHub</a>
+            <a href="https://www.linkedin.com/in/dylan-j-wolff">LinkedIn</a>
+    </nav>"#, inner)
 }
 
 pub fn render(nav: &str, body: &str) -> String {
     format!(
-        r#"  <main>
+        r#"
+    <main>
         <body>
             {}
-            <br />
             {}
-          </body>
-          </main>"#,
+        </body>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <footer>
+            <a href="\#top">Back to top of page</a>
+        </footer>
+   </main>"#,
         nav, body
     )
 }
