@@ -13,7 +13,8 @@ pub const HEADER: &str = r#"<!DOCTYPE html>
   </head>
 
 "#;
-// <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.classless.min.css">
+
+// Other "classless" css templates
 // <link rel="stylesheet" href="https://unpkg.com/mvp.css">
 
 pub fn render_nav<'a>(items: impl Iterator<Item = (&'a Path, &'a OsStr)>) -> String {
