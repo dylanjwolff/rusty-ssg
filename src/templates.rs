@@ -34,7 +34,7 @@ pub fn render_nav<'a>(items: impl Iterator<Item = (&'a Path, &'a OsStr)>) -> Str
             <li><a href="/">Home</a></li>
             {}
             <li>
-            <a href="#findmeon">Find Me On...</a>
+            <a href="#links">Links</a>
             <ul>
                 <li><a href="https://github.com/dylanjwolff">GitHub</a></li>
                 <li><a href="https://www.linkedin.com/in/dylan-j-wolff">LinkedIn</a></li>
@@ -68,14 +68,15 @@ pub fn render(nav: &str, body: &str) -> String {
         <br>
         <br>
         <br>
-        <footer>
-            <a href="#top">Back to top of page</a>
-        </footer>
    </main>"##,
         nav, body
     )
 }
 
-pub const FOOTER: &str = r#"
+pub const FOOTER: &str = r##"
+
+        <footer>
+            <a href="#top">Back to top of page</a>
+        </footer>
  </html>
-    "#;
+    "##;
