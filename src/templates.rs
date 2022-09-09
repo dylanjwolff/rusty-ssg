@@ -6,6 +6,7 @@ pub const HEADER: &str = r#"<!DOCTYPE html>
 <html lang="en">
 
   <head>
+    <title>Dylan J. Wolff</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kimeiga/bahunya/dist/bahunya.min.css">
@@ -38,7 +39,7 @@ pub fn render_nav<'a>(items: impl Iterator<Item = (&'a Path, &'a OsStr)>) -> Str
 
 pub fn render(nav: &str, body: &str) -> String {
     format!(
-        r#"
+        r##"
     <main>
         <body>
             {}
@@ -62,9 +63,9 @@ pub fn render(nav: &str, body: &str) -> String {
         <br>
         <br>
         <footer>
-            <a href="\#top">Back to top of page</a>
+            <a href="#top">Back to top of page</a>
         </footer>
-   </main>"#,
+   </main>"##,
         nav, body
     )
 }
