@@ -21,20 +21,25 @@ pub fn render_nav<'a>(items: impl Iterator<Item = (&'a Path, &'a OsStr)>) -> Str
         .filter(|(_, stem)| stem.to_string_lossy() != "index")
         .map(|(path, stem)| {
             format!(
-                r#"<a href="{}">{}</a>"#,
+                r#"<li><a href="{}">{}</a></li>"#,
                 path.with_extension("html").display(),
                 stem.to_string_lossy()
             )
         })
         .collect::<Vec<_>>()
         .join("\n\t");
-    format!(r#"
-    <nav>
-            <a href="/">Home</a>
+    format!(r##"
+    <nav><ul>
+            <li><a href="/">Home</a></li>
             {}
-            <a href="https://github.com/dylanjwolff">GitHub</a>
-            <a href="https://www.linkedin.com/in/dylan-j-wolff">LinkedIn</a>
-    </nav>"#, inner)
+            <li>
+            <a href="#findmeon">Find Me On...</a>
+            <ul>
+                <li><a href="https://github.com/dylanjwolff">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/dylan-j-wolff">LinkedIn</a></li>
+            </ul>
+            </li>
+    </ul></nav>"##, inner)
 }
 
 pub fn render(nav: &str, body: &str) -> String {
