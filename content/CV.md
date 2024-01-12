@@ -21,8 +21,10 @@ John J. Neuhauser Award for most outstanding acheivement in Computer Science (20
 -------
 <h4> Mathworks - Software Engineer I <small>(2016-2018)</small></h4>
 
-Developed tools for monitoring and testing containerized applications to facilitate the company-wide initiative to move existing web applications from shared VM hosts to Docker containers orchestrated through Kubernetes
+-- Developed tools for monitoring and testing containerized applications, facilitating the company-wide initiative to move existing web applications from shared VM hosts to Docker containers orchestrated through Kubernetes
 
 <h4> Mathworks - Associate Software Engineer <small>(2015-2016)</small></h4>
-As part of the Engineering Development Group, I worked on several software engineering projects accross the company in addition to providing techincal support for MATLAB
 
+-- Rotated through several software development teams and projects, ranging from core MATLAB development in C++ to JS web-infrastructure
+
+-- Provided technical support over phone, email and online forums for MATLAB (including as team lead)
