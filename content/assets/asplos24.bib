@@ -1,13 +1,44 @@
-@article{wolff2024gbfct,
-    bibtex_show = {true},
+@inproceedings{10.1145/3620665.3640389,
+    author = {Wolff, Dylan and Shi, Zheng and Duck, Gregory J. and Mathur, Umang
+              and Roychoudhury, Abhik},
     title = {Greybox Fuzzing for Concurrency Testing},
-    author = {Dylan Wolff, Shi Zheng, Gregory Duck, Umang Mathur, Abhik Roychoudhury},
-    journal = {29th ACM International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS) 2024},
-    volume = {29},
     year = {2024},
-    pdf = {asplos24.pdf},
-    publisher = {ACM},
-    selected = {true}
+    isbn = {9798400703850},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3620665.3640389},
+    doi = {10.1145/3620665.3640389},
+    abstract = {Uncovering bugs in concurrent programs is a challenging problem
+                owing to the exponentially large search space of thread
+                interleavings. Past approaches towards concurrency testing are
+                either optimistic --- relying on random sampling of these
+                interleavings --- or pessimistic --- relying on systematic
+                exploration of a reduced (bounded) search space. In this work, we
+                suggest a fresh, pragmatic solution neither focused only on
+                formal, systematic testing, nor solely on unguided sampling or
+                stress-testing approaches. We employ a biased random search which
+                guides exploration towards neighborhoods which will likely expose
+                new behavior. As such it is thematically similar to greybox fuzz
+                testing, which has proven to be an effective technique for
+                finding bugs in sequential programs. To identify new behaviors in
+                the domain of interleavings, we prune and navigate the search
+                space using the "reads-from" relation. Our approach is
+                significantly more efficient at finding bugs per schedule
+                exercised than other state-of-the art concurrency testing tools
+                and approaches. Experiments on widely used concurrency datasets
+                also show that our greybox fuzzing inspired approach gives a
+                strict improvement over a randomized baseline scheduling
+                algorithm in practice via a more uniform exploration of the
+                schedule space. We make our concurrency testing infrastructure "
+                Reads-From Fuzzer" (RFF) available for experimentation and usage
+                by the wider community to aid future research.},
+    booktitle = {Proceedings of the 29th ACM International Conference on
+                 Architectural Support for Programming Languages and Operating
+                 Systems, Volume 2},
+    pages = {482–498},
+    numpages = {17},
+    location = {La Jolla, CA, USA},
+    series = {ASPLOS '24},
 }
 
 
