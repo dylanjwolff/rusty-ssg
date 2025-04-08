@@ -2,7 +2,7 @@
 
 **Fuzzing: On Benchmarking Outcome as a Function of Benchmark Properties**  
 Dylan Wolff, Marcel Böhme, Abhik Roychoudhury
-*Transactions On Software Engineering Methodology (TOSEM) 2025)*   
+*Transactions On Software Engineering Methodology (TOSEM) 2025*   
 [PDF (pre-print)](assets/eval.pdf)
 
 
