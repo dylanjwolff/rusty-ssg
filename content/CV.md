@@ -16,7 +16,7 @@ B.S. in Computer Science, Minor in Math (magna cum laude, Honors Program)
 
 **Awards**  
 -- John J. Neuhauser Award for most outstanding acheivement in Computer Science (2015)  
--- [Dean’s Scholar](https://www.bc.edu/bc-web/schools/mcas/departments/political-science/undergraduate/awards-fellowships.html#deans_scholars) (2014) 
+-- [Dean’s Scholar](https://www.bc.edu/bc-web/schools/mcas/departments/political-science/undergraduate/awards-fellowships.html#deans_scholars) (2014)  
 -- [Sophomore Scholar](https://www.bc.edu/bc-web/schools/mcas/departments/political-science/undergraduate/awards-fellowships.html#sophomore_scholars) (2013)
 
 **Thesis**: *Mutational Fuzzing to Discover Software Vulnerabilities*
@@ -25,7 +25,7 @@ B.S. in Computer Science, Minor in Math (magna cum laude, Honors Program)
 -------
 <h4> Mathworks - Software Engineer I <small>(2016-2018)</small></h4>
 
-Developed tools for monitoring and testing containerized applications, facilitating the company-wide initiative to move existing web applications from shared VM hosts to Docker containers orchestrated through Kubernetes
+-- Developed tools for monitoring and testing containerized applications, facilitating the company-wide initiative to move existing web applications from shared VM hosts to Docker containers orchestrated through Kubernetes
 
 <h4> Mathworks - Associate Software Engineer <small>(2015-2016)</small></h4>
 
