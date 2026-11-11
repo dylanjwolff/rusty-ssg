@@ -1,15 +1,21 @@
 ### Publications
 
+**Concurrency Fuzzing of the Linux Kernel with eBPF**<br />
+Jiacheng Xu, Dylan Wolff, Xing Yi Han, Jialin Li, Abhik Roychoudhury<br />
+*35th USENIX Security Symposium 2026*<br />
+[PDF](assets/ebpf.pdf) | [BIB](assets/ebpf.bib) | [CODE](https://github.com/m0ck1ng/sect)
+
+
 **Agentic Concolic Execution**<br />
 Zhengxiong Luo, Huan Zhao, Dylan Wolff, Cristian Cadar, Abhik Roychoudhury<br />
-*(to appear) 47th IEEE Symposium on Security and Privacy (S&P) 2026*<br />
-[PDF (pre-print)](assets/agentic.pdf) | [CODE](https://concollmic.github.io/)
+*47th IEEE Symposium on Security and Privacy (S&P) 2026*<br />
+[PDF](assets/agentic.pdf) | [BIB](assets/agentic.bib) | [CODE](https://concollmic.github.io/)
 
 
 **Large Language Models in Software Security Analysis**<br />
 Dylan Wolff, Martin Mirchev, Abhik Roychoudhury<br />
-*(to appear) Communications of the ACM (CACM) 2025*<br />
-[PDF (pre-print)](assets/llms.pdf)
+*Communications of the ACM (CACM) 2026*<br />
+[PDF](assets/llms.pdf) | [BIB](assets/llms.bib) | [CODE](https://github.com/DARPA-AIxCC/asc-crs-healing-touch)
 
 
 **Shifting Fuzzing Left in Software Workflows**<br />

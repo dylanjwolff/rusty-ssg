@@ -11,8 +11,8 @@ My research goals revolve around using program analysis to find, prevent, and fi
 Recently, I have been focused on investigating novel automated testing approaches for concurrent programs.
 I’ve created several systems which can replace the OS scheduler to deterministically control and reorder concurrent program executions.
 Along with these systems, I’ve developed novel randomized algorithms which can efficiently search the space of program behaviors or bugs.
-Now, at AWS, I am looking into ways to apply these techniques and other formal methods to distributed storage systems within the Amazon Elastic File System.
-In my past research, I’ve also worked on components for a Rust deductive verification framework, researched the use of AI agents for security testing, and a created domain specific fuzzer for SMT solvers.
+Now, at AWS, I am looking into ways to apply these techniques and other formal methods to distributed storage within the Amazon Elastic File System.
+I’ve also worked on components for a Rust deductive verification framework, researched the use of AI agents for security testing, and a created domain specific fuzzer for SMT solvers.
 In a past life, before I became a researcher I worked at [Mathworks](https://www.mathworks.com/) as a software engineer on a variety of projects, mostly involving testing and deployment infrastructure for web applications.
 
 #### Fun Fact:
