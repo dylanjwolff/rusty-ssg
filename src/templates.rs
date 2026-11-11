@@ -2,6 +2,7 @@ use std::ffi::OsStr;
 use std::iter::Iterator;
 use std::path::Path;
 
+// <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kimeiga/bahunya@9872e90e45130fc87a5e6db057426eeb6d4af2a6/dist/bahunya.min.css">
 pub const HEADER: &str = r#"<!DOCTYPE html>
 <html lang="en">
 
@@ -46,11 +47,10 @@ pub fn render_nav<'a>(items: impl Iterator<Item = (&'a Path, &'a OsStr)>) -> Str
 pub fn render(nav: &str, body: &str) -> String {
     format!(
         r##"
+  <body>
+    {}
     <main>
-        <body>
-            {}
-            {}
-        </body>
+        {}
         <br>
         <br>
         <br>
@@ -78,5 +78,6 @@ pub const FOOTER: &str = r##"
         <footer>
             <a href="#top">Back to top of page</a>
         </footer>
- </html>
+  </body>
+</html>
     "##;
