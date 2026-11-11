@@ -1,13 +1,17 @@
 ### Teaching
 
-#### FALL 2022
-Automated Software Validation
+*Automated Software Validation* -- Teaching Assistant -- 2022,2023
 
-#### FALL 2023
-Automated Software Validation
+*Advanced Topics in Program Analysis* -- Project Mentor -- 2024
 
-### Additional Pedagogical Activity
+*Fuzzing Summer School* -- Competition Organizer, Lecturer -- 2024,2026
 
-#### Fuzzing Summer School 2024
-- Planned, organized, and presented the first fuzzing competition at the Fuzzing Summer School
-- Competition included 21 teams and 140 individual submissions
+### Mentoring 
+
+Xing Yi Han – Masters Thesis: Custom Kernel Scheduler With eBPF For Concurrency Fuzzing -- 2024
+
+Dick Ong and Ivan Tan – Final Year Undergrad. Project: Python Concurrency Testing -- 2025 - 2026
+
+Zi Shen Lim, Charles Wen – Semester Undergrad. Project: Multi-Process Python Concurrency Testing 2026 -- Present
+
+Ian Cheah, Luoqi Xu – Final Year Undergrad. Project: Dev. X for Python Concurrency Testing -- 2026 - Present

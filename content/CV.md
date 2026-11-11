@@ -1,1 +1,1 @@
-[download 1-page resume here](assets/CV.pdf)
+[download cv here](assets/CV.pdf)
