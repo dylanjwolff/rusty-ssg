@@ -1,12 +1,12 @@
 
 ![](images/dock.jpg "Dylan standing on a dock")
 # Dylan J. Wolff
-###### *PhD Candidate in Computer Science at NUS*
+###### *Applied Scientist at Amazon Web Services*
 -----
 #### About Me
 
-I am currently an Applied Research Scientist at [AWS](https://aws.amazon.com).
-Before that, I completed my PhD at the [National University of Singapore](https://www.nus.edu.sg/), advised by [Abhik Roychoudhury](https://abhikrc.com/) and my masters at [ETH Zürich](https://ethz.ch/en.html).
+Before starting at AWS, I completed my PhD at the [National University of Singapore](https://www.nus.edu.sg/), advised by [Abhik Roychoudhury](https://abhikrc.com/) and my masters at [ETH Zürich](https://ethz.ch/en.html).
+
 My research goals revolve around using program analysis to find, prevent, and fix bugs in real-world software.
 Recently, I have been focused on investigating novel automated testing approaches for concurrent programs.
 I’ve created several systems which can replace the OS scheduler to deterministically control and reorder concurrent program executions.
